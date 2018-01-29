@@ -14,7 +14,7 @@ set title
 set fenc=utf-8
 "スクロール時の余白10
 set scrolloff=10
-"キーマッピング
+
 "左端へ
 noremap <S-h>   ^
 noremap <S-j>   }
@@ -23,13 +23,23 @@ noremap <S-k>   {
 noremap <S-l>   $
 "ノーマルモードでも改行できるようにする
 nnoremap <CR> A<CR><ESC>
+"上下移動が論理行単位ではなく表示行単位で行われるようにする
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+"n, N キーで「次の（前の）検索候補」を画面の中心に表示する
+nnoremap n nzz
+nnoremap N Nzz
+"コマンドラインモードで %% を入力すると現在編集中のファイルのフォルダのパスが展開されるようにする
+cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 "Ctr+cでEsc
 inoremap <C-c> <Esc>
 "インサートモードでも移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+imap <C-k> <Up>
+imap <C-j> <Down>
+imap <C-h> <Left>
+imap <C-l> <Right>
 
 "検索
 "大文字と小文字を区別しない
@@ -71,13 +81,11 @@ if has('syntax')
     call ZenkakuSpace()
 endif
 
-set wildchar=<C-Z>
+" set wildchar=<C-Z>
 "マッチするものをリスト表示しつつ、共通する最長の部分まで補完
 set wildmode=list:longest
 "ステータス行を常に表示
 set laststatus=2
-"ペースト時インデントしないようにする
-set paste
 "OSのクリップボードを使用する
 set clipboard+=unnamed
 "ビープ音を消す
