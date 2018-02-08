@@ -1,0 +1,30 @@
+" : -> ;
+nnoremap ; :
+"ノーマルモードでも改行できるようにする
+nnoremap <CR> A<CR><ESC>
+
+"検索後、真ん中にフォーカスをあわせる
+noremap n nzz
+noremap N Nzz
+noremap * *zz
+noremap # #zz
+noremap g* g*zz
+noremap g# g#zz
+
+"インサートモードでも移動
+imap <C-k> <Up>
+imap <C-j> <Down>
+imap <C-h> <Left>
+imap <C-l> <Right>
+
+"検索
+"大文字と小文字を区別しない
+set ignorecase
+set smartcase
+"検索がファイル末尾まで進んだら、ファイル先頭から再び検索しない
+set nowrapscan
+"インクリメンタルサーチを有効
+set incsearch
+"検索結果をハイライト表示
+set hlsearch
+ 
