@@ -1,4 +1,3 @@
-"構文ハイライト有効化
 syntax enable
 "カラースキーマ
 colorscheme molokai
@@ -31,15 +30,20 @@ nnoremap gk k
 "n, N キーで「次の（前の）検索候補」を画面の中心に表示する
 nnoremap n nzz
 nnoremap N Nzz
+"新しいタブをstで追加
+nnoremap st :<C-u>tabnew<CR>
+
 "コマンドラインモードで %% を入力すると現在編集中のファイルのフォルダのパスが展開されるようにする
 cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 "Ctr+cでEsc
 inoremap <C-c> <Esc>
 "インサートモードでも移動
-imap <C-k> <Up>
-imap <C-j> <Down>
-imap <C-h> <Left>
-imap <C-l> <Right>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-y> <C-o>^
+inoremap <C-b> <C-o>$
 
 "検索
 "大文字と小文字を区別しない
@@ -135,6 +139,12 @@ if dein#load_state('/Users/TK/.config/nvim/bundle')
 
   " Clang plugin
   call dein#add('justmao945/vim-clang')
+
+  let g:rc_dir = expand("~/.config/nvim/rc")
+  let s:toml = g:rc_dir . '/dein.toml'
+  call dein#load_toml(s:toml, {'lazy': 0})
+
+  let g:python3_host_prog = '/Users/TK/.pyenv/versions/neovim3/bin/python'
 
   " Required:
   call dein#end()
