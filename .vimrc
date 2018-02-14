@@ -44,6 +44,8 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-y> <C-o>^
 inoremap <C-b> <C-o>$
+inoremap <C-f> <C-o>w
+inoremap <C-v> <DEL>
 
 "検索
 "大文字と小文字を区別しない
